@@ -2,23 +2,57 @@ import 'package:flutter/material.dart';
 import 'package:live_score/product/_.export.dart';
 
 ThemeData appDarkTheme = ThemeData(
-  brightness: Brightness.dark,
-  primaryColor: CustomColors.primary,
-  scaffoldBackgroundColor: CustomColors.darkBackground,
-  cardColor: CustomColors.darkCard,
+  primaryColor: CustomColors.primaryColor,
+  scaffoldBackgroundColor: CustomColors.scaffoldBackgroundColor,
   textTheme: const TextTheme(
-    displayLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: CustomColors.primary),
-    bodyLarge: TextStyle(fontSize: 16, color: CustomColors.darkText),
+    bodyLarge: TextStyle(color: CustomColors.textColor),
+    bodyMedium: TextStyle(color: CustomColors.textColor),
+    displayLarge: TextStyle(color: CustomColors.white),
+    displayMedium: TextStyle(color: CustomColors.white),
   ),
-  appBarTheme: const AppBarTheme(
-    backgroundColor: CustomColors.primary,
-    foregroundColor: Colors.white,
+  iconTheme: const IconThemeData(
+    color: CustomColors.iconColor,
+    size: 24.0,
   ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: CustomColors.primary,
-      foregroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
+  buttonTheme: const ButtonThemeData(
+    buttonColor: CustomColors.accentColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+    ),
+    textTheme: ButtonTextTheme.primary,
+  ),
+  inputDecorationTheme: const InputDecorationTheme(
+    filled: true,
+    fillColor: CustomColors.accentColor,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+      borderSide: BorderSide(color: CustomColors.iconColor),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+      borderSide: BorderSide(color: CustomColors.highlightColor),
     ),
   ),
+  appBarTheme: AppBarTheme(
+    color: CustomColors.appBarColor,
+    elevation: 0,
+    iconTheme: const IconThemeData(
+      color: CustomColors.iconColor,
+    ),
+    toolbarTextStyle: const TextTheme(
+      titleLarge: TextStyle(
+        color: CustomColors.textColor,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    ).bodyMedium,
+    titleTextStyle: const TextTheme(
+      titleLarge: TextStyle(
+        color: CustomColors.textColor,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    ).titleLarge,
+  ),
+  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: CustomColors.accentColor),
 );

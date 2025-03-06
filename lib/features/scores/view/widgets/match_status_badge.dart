@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:live_score/features/scores/_.export.dart';
+import 'package:live_score/product/_.export.dart';
 
 class MatchStatusBadge extends StatelessWidget {
   const MatchStatusBadge({required this.status, super.key});
@@ -8,28 +9,28 @@ class MatchStatusBadge extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     Color bgColor;
-    const Color textColor = Colors.white;
+    const Color textColor = CustomColors.white;
     IconData icon;
     String text;
 
     switch (status) {
       case MatchStatusses.notStarted:
-        bgColor = Colors.blueAccent;
+        bgColor = CustomColors.blue;
         icon = Icons.access_time;
         text = "Başlamadı";
         break;
       case MatchStatusses.live:
-        bgColor = Colors.redAccent;
+        bgColor = CustomColors.red;
         icon = Icons.sensors;
         text = "Canlı";
         break;
       case MatchStatusses.halfTime:
-        bgColor = Colors.orangeAccent;
+        bgColor = CustomColors.orange;
         icon = Icons.pause_circle_filled;
         text = "Devre Arası";
         break;
       case MatchStatusses.finished:
-        bgColor = Colors.green;
+        bgColor = CustomColors.green;
         icon = Icons.flag;
         text = "Bitti";
         break;

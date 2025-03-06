@@ -48,7 +48,7 @@ class _ScoresFilterBottomSheetState extends State<ScoresFilterBottomSheet> with 
                     width: 32,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(2)),
-                      color: Colors.grey,
+                      color: CustomColors.grey,
                     ),
                   ),
                   const Spacer(),
@@ -56,7 +56,7 @@ class _ScoresFilterBottomSheetState extends State<ScoresFilterBottomSheet> with 
                     padding: const EdgeInsets.only(top: 8),
                     child: IconButton(
                       onPressed: onApply,
-                      icon: const Icon(Icons.close, color: CustomColors.primary),
+                      icon: const Icon(Icons.close, color: CustomColors.primaryColor),
                     ),
                   ),
                 ],

@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:live_score/features/scores/_.export.dart';
+import 'package:live_score/product/_.export.dart';
 
 class MatchDetailPage extends StatelessWidget {
   const MatchDetailPage({required this.match, super.key});
@@ -66,12 +67,12 @@ class MatchDetailPage extends StatelessWidget {
         children: [
           Text(
             DateFormat('dd MMM HH:mm').format(match.startingAt),
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
+            style: const TextStyle(fontSize: 16, color: CustomColors.grey),
           ),
           const SizedBox(height: 12),
           Text(
             match.status.toString().split('.').last.toUpperCase(),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: CustomColors.blue),
           ),
         ],
       );
@@ -83,7 +84,7 @@ class MatchDetailPage extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                const Icon(Icons.location_on, color: Colors.red),
+                const Icon(Icons.location_on, color: CustomColors.red),
                 const SizedBox(width: 4),
                 Text(
                   match.location!,
@@ -96,7 +97,7 @@ class MatchDetailPage extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                const Icon(Icons.emoji_events, color: Colors.orange),
+                const Icon(Icons.emoji_events, color: CustomColors.orange),
                 const SizedBox(width: 4),
                 Text(
                   match.competition!.name ?? '',

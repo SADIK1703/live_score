@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 
 import 'package:live_score/features/scores/_.export.dart';
 import 'package:live_score/features/scores/view/widgets/match_status_badge.dart';
+import 'package:live_score/product/_.export.dart';
 
 class MatchItem extends StatefulWidget {
   const MatchItem({
@@ -33,23 +34,23 @@ class MatchItemState extends State<MatchItem> {
   @override
   Widget build(final BuildContext context) {
     String scoreText = "-";
-    Color scoreColor = Colors.black;
+    Color scoreColor = CustomColors.black;
 
     if (widget.status != MatchStatusses.notStarted) {
       scoreText = widget.score.score ?? "-";
       if (widget.status == MatchStatusses.live) {
-        scoreColor = Colors.red;
+        scoreColor = CustomColors.red;
       }
     }
 
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: CustomColors.white,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withAlpha(75),
+            color: CustomColors.grey.withAlpha(75),
             blurRadius: 5,
             spreadRadius: 2,
           ),
@@ -87,7 +88,7 @@ class MatchItemState extends State<MatchItem> {
                 Center(
                   child: Text(
                     DateFormat('dd MMM HH:mm').format(widget.matchTime),
-                    style: const TextStyle(color: Colors.grey),
+                    style: const TextStyle(color: CustomColors.accentColor),
                   ),
                 ),
               ],
@@ -107,7 +108,10 @@ class MatchItemState extends State<MatchItem> {
           ),
           Text(
             team.name ?? '',
-            style: const TextStyle(fontSize: 12),
+            style: const TextStyle(
+              fontSize: 12,
+              color: CustomColors.accentColor,
+            ),
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
           ),
