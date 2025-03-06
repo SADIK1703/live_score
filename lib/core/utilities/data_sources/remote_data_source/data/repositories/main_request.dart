@@ -17,15 +17,15 @@ class MainRequestRepository implements IBaseRequest {
     final ResponseParams<T>? responseParams,
   }) async {
     final String endPoint = requestParam.endPoint.path;
-    final Map<String, dynamic>? headers = await requestParam.headers;
+    final Map<String, dynamic> headers = requestParam.headers;
+    final Map<String, dynamic> queryParameters = (requestParam.requestParams ?? {})..addAll(headers);
     try {
       final Response<String> response = await DependencyInjector.instance<Dio>().request<String>(
         endPoint,
-        queryParameters: requestParam.requestParams,
+        queryParameters: queryParameters,
         data: requestParam.requestBody,
         options: Options(
           method: requestParam.endPoint.type.name,
-          headers: headers,
           responseType: ResponseType.json,
           contentType: "application/json",
           receiveDataWhenStatusError: true,
@@ -43,6 +43,9 @@ class MainRequestRepository implements IBaseRequest {
       }
       return state;
     } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionError) {
+        return DataFailed(RequestError(message: 'Please check your internet connection and try again'));
+      }
       if (e.response == null) {
         return DataFailed(RequestError());
       } else {

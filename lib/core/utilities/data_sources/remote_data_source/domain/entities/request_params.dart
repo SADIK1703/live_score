@@ -1,9 +1,8 @@
-import 'dart:async';
-
 import 'package:live_score/core/_.export.dart';
 
 enum HeadersEnum {
-  authorization('Authorization');
+  apiKey('key'),
+  apiSecret('secret');
 
   const HeadersEnum(this.name);
 
@@ -20,9 +19,10 @@ class RequestParams {
   final Map<String, dynamic>? requestBody;
   final Map<String, dynamic>? requestParams;
 
-  Future<Map<String, dynamic>?> get headers async {
+  Map<String, dynamic> get headers {
     final Map<String, dynamic> res = {};
-    res[HeadersEnum.authorization.name] = RequestConstants().apiToken;
+    res[HeadersEnum.apiKey.name] = RequestConstants().apiKey;
+    res[HeadersEnum.apiSecret.name] = RequestConstants().apiSecret;
     return res;
   }
 }

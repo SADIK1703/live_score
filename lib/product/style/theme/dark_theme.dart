@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live_score/product/_.export.dart';
 
-ThemeData darkTheme = ThemeData(
+ThemeData appDarkTheme = ThemeData(
   brightness: Brightness.dark,
   primaryColor: CustomColors.primary,
   scaffoldBackgroundColor: CustomColors.darkBackground,

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:live_score/core/init/dependency_injector.dart';
+import 'package:live_score/features/scores/_.export.dart';
 import 'package:live_score/product/style/theme/theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DependencyInjector().initialize();
   runApp(const MyApp());
 }
 
@@ -14,7 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Live Match Score',
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
-        home: const MyHomePage(title: 'Flutter Live Match Score'),
+        home: const ScoresListPage(),
       );
 }
 
