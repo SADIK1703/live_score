@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:live_score/core/_.export.dart';
 import 'package:live_score/features/scores/_.export.dart';
+import 'package:live_score/features/scores/view/pages/match_detail_page.dart';
 import 'package:live_score/features/scores/view/widgets/scores_filter_bottom_sheet.dart';
 import 'package:live_score/product/_.export.dart';
 
-class ScoresListPage extends StatefulWidget {
-  const ScoresListPage({super.key});
+class MatchListPage extends StatefulWidget {
+  const MatchListPage({super.key});
 
   @override
-  State<ScoresListPage> createState() => _ScoresListPageState();
+  State<MatchListPage> createState() => _MatchListPageState();
 }
 
-class _ScoresListPageState extends State<ScoresListPage> {
+class _MatchListPageState extends State<MatchListPage> {
   @override
   void initState() {
     super.initState();
@@ -54,13 +55,23 @@ class _ScoresListPageState extends State<ScoresListPage> {
               ScoresSuccess() => RefreshIndicator(
                   onRefresh: DependencyInjector.instance<ScoresCubit>().fetchScoresPeriodic,
                   child: ListView.separated(
-                    itemBuilder: (final context, final index) => MatchItem(
-                      team1: state.matches[index].home,
-                      team2: state.matches[index].away,
-                      matchTime: state.matches[index].startingAt,
-                      time: state.matches[index].time,
-                      score: state.matches[index].scores,
-                      status: state.matches[index].status,
+                    padding: const EdgeInsets.all(8),
+                    itemBuilder: (final context, final index) => InkWell(
+                      onTap: () async {
+                        await Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (final context) => MatchDetailPage(match: state.matches[index]),
+                          ),
+                        );
+                      },
+                      child: MatchItem(
+                        team1: state.matches[index].home,
+                        team2: state.matches[index].away,
+                        matchTime: state.matches[index].startingAt,
+                        time: state.matches[index].time,
+                        score: state.matches[index].scores,
+                        status: state.matches[index].status,
+                      ),
                     ),
                     separatorBuilder: (final context, final index) => const SizedBox(height: 8),
                     itemCount: state.matches.length,

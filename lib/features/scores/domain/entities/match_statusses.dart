@@ -1,16 +1,16 @@
 enum MatchStatusses {
-  live('IN PLAY'),
-  finished('FINISHED'),
-  halfTime('HALF TIME BREAK'),
-  notStarted(''),
+  live(['IN PLAY', 'ADDED TIME']),
+  finished(['FINISHED']),
+  halfTime(['HALF TIME BREAK']),
+  notStarted(['']),
   ;
 
-  const MatchStatusses(this.key);
+  const MatchStatusses(this.keys);
 
-  final String key;
+  final List<String> keys;
 
   static MatchStatusses fromKey(final String key) => MatchStatusses.values.firstWhere(
-        (final status) => status.key == key,
+        (final status) => status.keys.contains(key),
         orElse: () => MatchStatusses.notStarted,
       );
 }

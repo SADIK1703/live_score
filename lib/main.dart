@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Live Match Score',
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
-        home: const ScoresListPage(),
+        home: const MatchListPage(),
       );
 }
 

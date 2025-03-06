@@ -49,7 +49,7 @@ class ScoresResponseModelData {
       };
 }
 
-class ScoresMatchModel extends Score {
+class ScoresMatchModel extends Match {
   ScoresMatchModel({
     required super.home,
     required super.status,
@@ -58,12 +58,12 @@ class ScoresMatchModel extends Score {
     required super.away,
     required super.scores,
     super.country,
+    super.location,
+    super.competition,
     super.lastChanged,
     super.added,
     super.scheduled,
     this.federation,
-    this.location,
-    this.competition,
     this.fixtureId,
     this.odds,
     this.outcomes,
@@ -95,8 +95,6 @@ class ScoresMatchModel extends Score {
       );
 
   final Map<String, dynamic>? federation;
-  final String? location;
-  final ScoreCompetitionModel? competition;
   final int? fixtureId;
   final ScoreOddsModel? odds;
   final ScoreOutcomesModel? outcomes;

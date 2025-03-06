@@ -6,5 +6,5 @@ export 'data/repositories/countries_repository.dart';
 export 'data/repositories/scores_repository.dart';
 export 'domain/entities/match_statusses.dart';
 export 'domain/entities/score.dart';
-export 'view/pages/scores_list_page.dart';
+export 'view/pages/match_list_page.dart';
 export 'view/widgets/match_item.dart';
