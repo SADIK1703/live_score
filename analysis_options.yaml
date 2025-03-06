@@ -1,28 +1,291 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
-#
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
-
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
+analyzer:
+  errors:
+    avoid_annotating_with_dynamic: ignore
+    avoid_dynamic_calls: ignore
 include: package:flutter_lints/flutter.yaml
-
-linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
+dart_code_metrics:
+  formatter:
+    cascading-widget-extensions: true
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # Flutter
+    - always-remove-listener
+    - avoid-border-all
+    - avoid-empty-setstate: false
+    - avoid-expanded-as-spacer
+    - avoid-flexible-outside-flex
+    - avoid-missing-controller
+    - avoid-returning-widgets
+    - avoid-single-child-column-or-row
+    - avoid-state-constructors
+    - avoid-undisposed-instances
+    - avoid-unnecessary-gesture-detector
+    - avoid-stateless-widget-initialized-fields
+    - avoid-unnecessary-overrides-in-state
+    - avoid-unnecessary-setstate
+    - avoid-wrapping-in-padding
+    - dispose-fields
+    - prefer-align-over-container
+    - prefer-center-over-align
+    - prefer-const-border-radius
+    - prefer-container
+    - prefer-correct-edge-insets-constructor
+    - prefer-dedicated-media-query-methods
+    - prefer-extracting-callbacks
+    - prefer-for-loop-in-children
+    - prefer-padding-over-container
+    - prefer-sized-box-square
+    - prefer-spacing
+    - prefer-transform-over-container
+    - prefer-using-list-view
+    - prefer-widget-private-members
+    - proper-super-calls
+    - use-closest-build-context
+    - use-setstate-synchronously
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+    # Recommended
+    - arguments-ordering
+    - avoid-cascade-after-if-null
+    - avoid-collection-methods-with-unrelated-types
+    - avoid-duplicate-exports
+    - avoid-missing-enum-constant-in-map
+    - avoid-passing-async-when-sync-expected
+    - avoid-throw-in-catch-block
+    - avoid-unused-parameters
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unrelated-type-assertions
+    - avoid-unrelated-type-casts
+    - no-empty-block: false
+    - no-equal-then-else
+    - prefer-correct-test-file-name
+    - prefer-return-await
+    - avoid-self-assignment
+    - avoid-self-compare
+    - avoid-shadowing
+    - prefer-iterable-of
+    - no-equal-switch-case
+    - no-equal-conditions
+    - avoid-equal-expressions
+    - avoid-missed-calls
+    - avoid-unnecessary-negations
+    - avoid-unused-generics
+    - function-always-returns-null
+    - avoid-throw-objects-without-tostring
+    - avoid-unsafe-collection-methods
+    - prefer-wildcard-pattern
+    - no-equal-switch-expression-cases
+    - avoid-future-tostring
+    - avoid-unassigned-late-fields
+    - avoid-nested-futures
+    - avoid-generics-shadowing
+    - prefer-parentheses-with-if-null
+    - no-equal-nested-conditions
+    - avoid-shadowed-extension-methods
+    - avoid-unnecessary-conditionals
+    - avoid-double-slash-imports
+    - avoid-map-keys-contains
+    - prefer-correct-json-casts
+    - avoid-duplicate-mixins
+    - avoid-nullable-interpolation
+    - avoid-unused-instances
+    - prefer-correct-for-loop-increment
+    - prefer-public-exception-classes
+    - avoid-uncaught-future-errors
+    - check-for-equals-in-render-object-setters
+    - consistent-update-render-object
+    - avoid-incomplete-copy-with
+    - avoid-recursive-widget-calls
+    - avoid-missing-image-alt
+    - avoid-passing-self-as-argument
+    - avoid-unnecessary-if
+    - avoid-unconditional-break
+    - avoid-referencing-discarded-variables
+    - avoid-unnecessary-local-late
+    - avoid-wildcard-cases-with-enums
+    - match-getter-setter-field-names
+    - avoid-accessing-collections-by-constant-index
+    - prefer-unique-test-names
+    - avoid-duplicate-cascades
+    - prefer-specific-cases-first
+    - avoid-duplicate-switch-case-conditions
+    - prefer-explicit-function-type
+    - avoid-misused-test-matchers
+    - avoid-duplicate-test-assertions
+    - prefer-switch-with-enums
+    - prefer-any-or-every
+    - avoid-duplicate-map-keys
+    - avoid-nullable-tostring
+    - avoid-duplicate-initializers
+    - avoid-unassigned-stream-subscriptions
+    - avoid-empty-test-groups
+    - avoid-not-encodable-in-to-json
+    - avoid-contradictory-expressions
+    - avoid-excessive-expressions
+    - prefer-private-extension-type-field
+    - avoid-renaming-representation-getters
+    - avoid-empty-spread
+    - avoid-missing-completer-stack-trace
+    - avoid-casting-to-extension-type
+    - prefer-overriding-parent-equality
+    - avoid-unknown-pragma
+    - avoid-conditions-with-boolean-literals
+    - avoid-multi-assignment
+    - avoid-collection-equality-checks
+    - avoid-only-rethrow
+    - avoid-incorrect-image-opacity
+    - avoid-misused-set-literals
+    - dispose-class-fields
+    - avoid-suspicious-super-overrides
+    - avoid-assignments-as-conditions
+    - avoid-unused-assignment
+    - avoid-unnecessary-overrides
+    - avoid-implicitly-nullable-extension-types
+    - avoid-late-final-reassignment
+    - avoid-duplicate-constant-values
+    - function-always-returns-same-value
+    - avoid-unnecessary-patterns
+    - avoid-commented-out-code
+
+    # Code simplification
+    - avoid-redundant-async
+    - avoid-redundant-else
+    - avoid-unnecessary-nullable-return-type
+    - avoid-redundant-pragma-inline
+    - avoid-nested-records
+    - avoid-redundant-positional-field-name
+    - avoid-explicit-pattern-field-name
+    - prefer-simpler-patterns-null-check
+    - avoid-unnecessary-return
+    - avoid-duplicate-patterns
+    - avoid-keywords-in-wildcard-pattern
+    - avoid-unnecessary-futures
+    - avoid-unnecessary-reassignment
+    - avoid-unnecessary-call
+    - avoid-unnecessary-stateful-widgets
+    - move-variable-closer-to-its-usage
+    - avoid-nullable-parameters-with-default-values
+    - prefer-null-aware-spread
+    - avoid-inferrable-type-arguments
+    - avoid-unnecessary-super
+    - avoid-unnecessary-collections
+    - avoid-unnecessary-extends
+    - avoid-unnecessary-enum-arguments
+    - prefer-contains
+    - prefer-simpler-boolean-expressions
+
+    # Style
+    - prefer-trailing-comma
+    - unnecessary-trailing-comma
+    - prefer-declaring-const-constructor
+    - prefer-single-widget-per-file
+    - prefer-prefixed-global-constants
+    - prefer-correct-callback-field-name
+linter:
+  rules:
+    unawaited_futures: true
+    avoid_print: true
+    cancel_subscriptions: true
+    close_sinks: true
+    control_flow_in_finally: true
+    discarded_futures: true
+    unrelated_type_equality_checks: true
+    always_declare_return_types: true
+    avoid_double_and_int_checks: true
+    avoid_function_literals_in_foreach_calls: true
+    avoid_js_rounded_ints: true
+    avoid_returning_this: true
+    avoid_void_async: true
+    await_only_futures: true
+    camel_case_types: true
+    curly_braces_in_flow_control_structures: true
+    empty_catches: true
+    empty_constructor_bodies: true
+    file_names: true
+    join_return_with_assignment: true
+    leading_newlines_in_multiline_strings: true
+    missing_whitespace_between_adjacent_strings: true
+    no_default_cases: true
+    no_leading_underscores_for_library_prefixes: true
+    non_constant_identifier_names: true
+    null_check_on_nullable_type_parameter: true
+    null_closures: true
+    parameter_assignments: true
+    prefer_asserts_in_initializer_lists: true
+    prefer_asserts_with_message: true
+    prefer_conditional_assignment: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_contains: true
+    prefer_final_fields: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    prefer_final_parameters: true
+    prefer_function_declarations_over_variables: true
+    prefer_generic_function_type_aliases: true
+    prefer_if_null_operators: true
+    prefer_if_elements_to_conditional_expressions: true
+    prefer_interpolation_to_compose_strings: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_is_not_operator: true
+    prefer_null_aware_method_calls: true
+    prefer_null_aware_operators: true
+    prefer_spread_collections: true
+    recursive_getters: true
+    require_trailing_commas: true
+    sized_box_for_whitespace: true
+    sized_box_shrink_expand: true
+    slash_for_doc_comments: true
+    sort_child_properties_last: true
+    sort_unnamed_constructors_first: true
+    type_init_formals: true
+    unnecessary_await_in_return: true
+    unnecessary_brace_in_string_interps: true
+    unnecessary_const: true
+    unnecessary_late: true
+    unnecessary_constructor_name: true
+    unnecessary_getters_setters: true
+    unnecessary_null_aware_assignments: true
+    unnecessary_null_aware_operator_on_extension_on_nullable: true
+    unnecessary_null_checks: true
+    unnecessary_nullable_for_final_variable_declarations: true
+    unnecessary_parenthesis: true
+    unnecessary_string_escapes: true
+    unnecessary_this: true
+    unnecessary_to_list_in_spreads: true
+    use_colored_box: true
+    use_decorated_box: true
+    use_full_hex_values_for_flutter_colors: true
+    valid_regexps: true
+    use_is_even_rather_than_modulo: true
+    use_named_constants: true
+    use_rethrow_when_possible: true
+    use_to_and_as_if_applicable: true
+    always_use_package_imports: true
+    avoid_empty_else: true
+    avoid_relative_lib_imports: true
+    avoid_type_to_string: true
+    avoid_types_as_parameter_names: true
+    avoid_web_libraries_in_flutter: true
+    comment_references: true
+    prefer_single_quotes: false
+    sort_constructors_first: true
+    prefer_constructors_over_static_methods: true
+    cascade_invocations: false
+    avoid_annotating_with_dynamic: true
+    annotate_overrides: true
+    library_prefixes: true
+    avoid_dynamic_calls: true
+    type_annotate_public_apis: true
+    always_put_required_named_parameters_first: true
+    avoid_types_on_closure_parameters: true
+    avoid_shadowing_type_parameters: true
+    use_key_in_widget_constructors: true
+    overridden_fields: true
+    prefer_expression_function_bodies: true
+    unnecessary_lambdas: true
+    only_throw_errors: true
+    unnecessary_overrides: true
+    constant_identifier_names: true
