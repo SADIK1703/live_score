@@ -31,7 +31,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
       );
