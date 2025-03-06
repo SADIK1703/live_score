@@ -17,7 +17,7 @@ final class ScoresLoading extends ScoresState {
 final class ScoresSuccess extends ScoresState {
   const ScoresSuccess(this.matches);
 
-  final List<Match> matches;
+  final List<MatchEntity> matches;
 }
 
 final class ScoresEmpty extends ScoresState {

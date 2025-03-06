@@ -49,7 +49,7 @@ class ScoresResponseModelData {
       };
 }
 
-class ScoresMatchModel extends Match {
+class ScoresMatchModel extends MatchEntity {
   ScoresMatchModel({
     required super.home,
     required super.status,

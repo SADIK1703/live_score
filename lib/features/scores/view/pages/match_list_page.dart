@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:live_score/core/_.export.dart';
 import 'package:live_score/features/scores/_.export.dart';
-import 'package:live_score/features/scores/view/pages/match_detail_page.dart';
-import 'package:live_score/features/scores/view/widgets/scores_filter_bottom_sheet.dart';
 import 'package:live_score/product/_.export.dart';
 
 class MatchListPage extends StatefulWidget {
@@ -64,14 +62,7 @@ class _MatchListPageState extends State<MatchListPage> {
                           ),
                         );
                       },
-                      child: MatchItem(
-                        team1: state.matches[index].home,
-                        team2: state.matches[index].away,
-                        matchTime: state.matches[index].startingAt,
-                        time: state.matches[index].time,
-                        score: state.matches[index].scores,
-                        status: state.matches[index].status,
-                      ),
+                      child: MatchItem(match: state.matches[index]),
                     ),
                     separatorBuilder: (final context, final index) => const SizedBox(height: 8),
                     itemCount: state.matches.length,

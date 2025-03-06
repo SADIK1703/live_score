@@ -1,7 +1,7 @@
 import 'package:live_score/features/scores/_.export.dart';
 
-class Match {
-  Match({
+class MatchEntity {
+  MatchEntity({
     required this.id,
     required this.home,
     required this.away,
